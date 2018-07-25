@@ -1,0 +1,45 @@
+version1实现：
+1.初始需求：鸭子都有发出叫声和会游泳的特性，不同的鸭子有不同的显示
+设计实现：
+父类：Duck
+子类：RedHeadDuck、GreenHeadDuck
+	共有的特性在父类中实现；
+		public void swim(){//添加实现}
+		public void quack(){//添加实现}
+	独有的特性子类中实现；
+		public aabstract void display();//在各个子类中实现
+2.新需求：添加会飞的鸭子
+	2.1 解决办法：在超类中添加会飞的特性 public void fly(){//具体实现}
+		存在问题：有的鸭子没有飞的特性
+		分析原因：父类的修改会影响子类的修改
+	2.2 解决办法：在不会飞的鸭子类中添加不会飞特性覆盖父类的方法；
+		问题：如果大量的鸭子类别，意味着父类的修改会影响很多子类的修改，存在大量重复的工作；
+		父类抽象，由子类实现(代码复用性低)
+	2.3 解决办法：使用策略模式实现
+version2实现：
+3.策略模式的实现
+	1）定义接口及其实现的子类(描述变化的特性)：
+	public interface FlyBehavior(){
+		void fly();
+	}
+	public interface QuackBehavior(){
+		void quack();
+	}
+	2）在父类中声明对象，调用对象的方法
+	FlyBehavior flyBehavior;
+	QuackBehavior quackBehavior;
+	3）在子类中创建对象为其设定不同的特性
+	在GreenHeadDuck类中：
+	public GreenHeadDuck() {
+		flyBehavior = new LowFly();
+		quackBehavior = new ScrannelQuack();
+	}
+4.在父类中添加改变其特性的方法
+	public void setFlyBehavior(FlyBehavior fb){
+		flyBehavior = fb;
+	}
+	public void setQuackBehavior(QuackBehavior qb){
+		quackBehavior = qb;
+	}
+	在获取类对象时，可以动态的修改其特性；
+	
