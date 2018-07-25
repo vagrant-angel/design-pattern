@@ -11,7 +11,7 @@ public class GreenHeadDuck extends Duck {
 	}
 	@Override
 	public void display() {
-		System.out.println("--Ѽ��Ϊ��ɫ---");
+		System.out.println("----鸭子为绿色------");
 	}
 
 }
