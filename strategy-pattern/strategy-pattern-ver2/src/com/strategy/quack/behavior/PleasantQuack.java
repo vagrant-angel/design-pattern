@@ -4,7 +4,7 @@ public class PleasantQuack implements QuackBehavior{
 
 	@Override
 	public void quack() {
-		System.out.println("Ñ¼×Ó½ĞÉùºÃÌı");
+		System.out.println("é¸­å­å«å£°å¥½å¬");
 	}
 
 }
