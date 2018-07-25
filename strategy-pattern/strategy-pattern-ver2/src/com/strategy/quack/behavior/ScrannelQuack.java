@@ -4,7 +4,7 @@ public class ScrannelQuack implements QuackBehavior {
 
 	@Override
 	public void quack() {
-		System.out.println("鸭子叫声比较难听");
+		System.out.println("楦瓙鍙０姣旇緝闅惧惉");
 	}
 	
 }
